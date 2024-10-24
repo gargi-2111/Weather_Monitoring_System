@@ -34,9 +34,9 @@ This key will be used to fetch weather data.
 Docker:
 Install Docker from here if you don't have it already.
 Docker is used to containerize the application for consistency across environments.
+
 Dependencies
 The following dependencies are required for the application to run, and will be installed automatically if using Docker:
-
 Flask: Web framework to serve the application.
 requests: For making API calls to OpenWeatherMap.
 SQLAlchemy: ORM for interacting with the SQLite database.
@@ -47,18 +47,10 @@ All dependencies are listed in the requirements.txt file.
 Installation and Setup Instructions
 1. Clone the Repository
 First, clone this repository to your local machine:
-
-bash
-Copy code
 git clone https://github.com/yourusername/weather-monitoring-system.git
 cd weather-monitoring-system
 2. Set Up API Key and Configurations
 Open the config.py file and update it with your OpenWeatherMap API Key:
-
-python
-Copy code
-# config.py
-
 API_KEY = "your_openweathermap_api_key_here"  # Replace with your actual API key
 LOCATIONS = ['Delhi', 'Mumbai', 'Chennai', 'Bangalore', 'Kolkata', 'Hyderabad']
 POLL_INTERVAL = 300  # Poll every 5 minutes
@@ -67,12 +59,8 @@ DATABASE_URI = "sqlite:///weather_data.db"  # SQLite database for persistent sto
 3. Running the Application Using Docker
 Option 1: Using Docker (Recommended)
 Build the Docker image:
-bash
-Copy code
 docker build -t weather-monitoring-system .
 Run the Docker container:
-bash
-Copy code
 docker run -p 5000:5000 weather-monitoring-system
 The Flask app will now be running inside the Docker container. Visit http://localhost:5000/ in your browser to view the app.
 
@@ -80,8 +68,7 @@ Option 2: Using Docker Compose (For Multi-Container Setup)
 If you need a more complex setup (e.g., using a PostgreSQL database), you can use Docker Compose.
 
 Run the app with Docker Compose:
-bash
-Copy code
+
 docker-compose up --build
 This will start both the Flask app and any other services you define in the docker-compose.yml file.
 
@@ -89,8 +76,7 @@ This will start both the Flask app and any other services you define in the dock
 If you prefer to run the application without Docker, follow these steps:
 
 Install dependencies:
-bash
-Copy code
+
 # Create a virtual environment
 python3 -m venv venv
 source venv/bin/activate
@@ -98,8 +84,7 @@ source venv/bin/activate
 # Install the required Python packages
 pip install -r requirements.txt
 Run the Flask application:
-bash
-Copy code
+
 python app.py
 The application will now be running at http://localhost:5000/.
 
@@ -123,8 +108,6 @@ Weather trends can be visualized using matplotlib (e.g., temperature trends over
 Testing
 To run the unit tests, you can use pytest. All test cases are located in the tests/ directory.
 
-bash
-Copy code
 # Run tests using pytest
 pytest tests/
 Tests cover:
